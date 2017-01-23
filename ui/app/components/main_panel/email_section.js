@@ -98,6 +98,10 @@ export default class EmailSection extends React.Component {
     App.show('addressbook', {account: this.props.account})
   }
 
+  openPixelated() {
+    window.open("http://localhost:9090");
+  }
+
   openApp() {}
 
   openPrefs() {}
@@ -127,9 +131,10 @@ export default class EmailSection extends React.Component {
       body = (
         <ButtonToolbar>
           <IMAPButton account={this.props.account} />
-          <Button onClick={this.openKeys}>Addressbook</Button>
+          <Button onClick={this.openPixelated}>Open Mail</Button>
         </ButtonToolbar>
       )
+      // <Button onClick={this.openKeys}>Addressbook</Button>
     }
     return (
       <SectionLayout icon="envelope" status={this.state.status}

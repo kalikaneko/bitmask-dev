@@ -300,6 +300,11 @@ class IncomingMail(Service):
                 logger.debug("skipping message with decrypting errors...")
             elif self._is_msg(keys):
                 # TODO this pipeline is a bit obscure!
+                print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+                print "ABOUT TO DECRYPT:"
+                print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+                print doc
+                print "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
                 d = self._decrypt_doc(doc)
                 d.addCallback(self._maybe_extract_keys)
                 d.addCallbacks(self._add_message_locally, self._errback)
